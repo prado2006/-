@@ -1,0 +1,13 @@
+[Unit]
+Description=VK World Game bot
+After=network.target vk-world-game-web.service
+
+[Service]
+WorkingDirectory=/opt/vk_world_game
+EnvironmentFile=/opt/vk_world_game/.env
+ExecStart=/opt/vk_world_game/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

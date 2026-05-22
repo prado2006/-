@@ -1,0 +1,13 @@
+[Unit]
+Description=VK World Game web
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/vk_world_game
+EnvironmentFile=/opt/vk_world_game/.env
+ExecStart=/opt/vk_world_game/.venv/bin/uvicorn web_app:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
